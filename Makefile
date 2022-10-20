@@ -11,7 +11,10 @@ SRCS  = ft_memset.c \
 		ft_memmove.c \
 		ft_bzero.c \
 		ft_strlcat.c \
-		ft_strlcpy.c
+		ft_strlcpy.c \
+		ft_toupper.c \
+		ft_tolower.c \
+		ft_strchr.c
 
 INCLUDE = include
 
