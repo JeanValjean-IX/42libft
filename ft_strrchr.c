@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 00:16:06 by blopez-f          #+#    #+#             */
-/*   Updated: 2022/10/23 10:07:07 by blopez-f         ###   ########.fr       */
+/*   Created: 2022/10/23 10:03:32 by blopez-f          #+#    #+#             */
+/*   Updated: 2022/10/23 10:05:45 by blopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*aux;
 
-	while (s && *s != (char)c && *s != '\0')
+	aux = 0;
+	while (*s != '\0')
+	{
+		if (*s == (char)c)
+			aux = (char *)s;
 		s++;
-	if (*s == (char)c)
-		aux = (char *)s;
-	else
+	}
+	if (aux == 0 && (char)c != '\0')
 		return (0);
+	else if (aux == 0 && (char)c == '\0')
+		aux = (char *)s;
 	return (aux);
 }
