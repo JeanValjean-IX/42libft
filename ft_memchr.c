@@ -6,7 +6,7 @@
 /*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 18:57:53 by blopez-f          #+#    #+#             */
-/*   Updated: 2022/10/23 20:42:53 by blopez-f         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:20:09 by blopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		return (0);
 	aux_s = (unsigned char *)s;
 	aux_n = 0;
-	while (*aux_s && aux_n < n - 1 && *aux_s != (unsigned char)c)
+	while (aux_n < n - 1 && *aux_s != (unsigned char)c)
 	{
 		aux_s++;
 		aux_n++;
