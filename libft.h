@@ -6,7 +6,7 @@
 /*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:44:45 by blopez-f          #+#    #+#             */
-/*   Updated: 2022/10/24 20:21:56 by blopez-f         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:56:37 by blopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
 void	ft_bzero(void *s, size_t len);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
