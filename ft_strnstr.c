@@ -6,37 +6,36 @@
 /*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:51:18 by blopez-f          #+#    #+#             */
-/*   Updated: 2022/10/25 21:37:05 by blopez-f         ###   ########.fr       */
+/*   Updated: 2022/10/31 21:52:11 by blopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	aux_len;
-	char	*aux_big_01;
-	char	*aux_big_02;
-	char	*aux_little;
+	char	*aux_haystack_01;
+	char	*aux_haystack_02;
+	char	*aux_needle;
 
-	if (ft_strlen(little) == 0)
-		return ((char *)big);
-	aux_big_01 = (char *)big;
-	aux_len = 0;
-	while (*aux_big_01 != '\0' && aux_len < len - 1
-		&& ft_strlen(little) <= len)
+	if (ft_strlen(needle) == 0)
+		return ((char *)haystack);
+	aux_haystack_01 = (char *)haystack;
+	while (*aux_haystack_01 != '\0'
+		&& (size_t)(aux_haystack_01 - haystack) < len
+		&& ft_strlen(needle) <= len)
 	{
-		aux_little = (char *)little;
-		aux_big_02 = aux_big_01;
-		while (*aux_big_02 == *aux_little && (size_t)(aux_big_02 - big) < len)
+		aux_needle = (char *)needle;
+		aux_haystack_02 = aux_haystack_01;
+		while (*aux_haystack_02 == *aux_needle
+			&& (size_t)(aux_haystack_02 - haystack) < len)
 		{
-			aux_big_02++;
-			aux_little++;
-			if (*aux_little == '\0')
-				return (aux_big_01);
+			aux_haystack_02++;
+			aux_needle++;
+			if (*aux_needle == '\0')
+				return (aux_haystack_01);
 		}
-		aux_big_01++;
-		aux_len++;
+		aux_haystack_01++;
 	}
 	return (0);
 }
