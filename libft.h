@@ -6,7 +6,7 @@
 /*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:44:45 by blopez-f          #+#    #+#             */
-/*   Updated: 2022/11/01 20:28:59 by blopez-f         ###   ########.fr       */
+/*   Updated: 2022/11/01 20:52:29 by blopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdlib.h>
 
 void	*ft_memset(void *dest, int val, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
@@ -36,5 +37,6 @@ int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *str);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
