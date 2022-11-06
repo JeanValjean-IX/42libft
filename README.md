@@ -1,6 +1,6 @@
 # c_libft
 
-FT_STRTRIM<br>
+FT_STRTRIM
 <Hr>
 Prototipo   : char *ft_strtrim(char const *s1, char const *set);<br>
 Entrada     : char const *s1    --->   cadena a manipular<br>
