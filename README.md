@@ -1,7 +1,7 @@
 # c_libft
 
 FT_STRTRIM<br>
-------------------------------------------------------------------------------------------------------------------------------<br>
+<Hr>
 Prototipo   : char *ft_strtrim(char const *s1, char const *set);<br>
 Entrada     : char const *s1    --->   cadena a manipular<br>
               char const *set   --->   conjunto de carácteres delimitadores<br>
