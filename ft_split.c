@@ -6,100 +6,79 @@
 /*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:12:25 by blopez-f          #+#    #+#             */
-/*   Updated: 2022/11/14 23:17:21 by blopez-f         ###   ########.fr       */
+/*   Updated: 2022/11/18 23:39:46 by blopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-char	**ft_clean(char **buffer, size_t size)
+size_t	ft_count_words(const char *s, char c)
 {
-	size_t	aux_pos;
+	size_t	size;
+	size_t	position;
 
-	aux_pos = 0;
-	while (aux_pos < size)
+	size = 0;
+	position = 0;
+	while (s[position])
 	{
-		free(buffer[aux_pos]);
-		aux_pos++;
-	}
-	free(buffer);
-	return (NULL);
-}
-
-char	*ft_getword(const char *s, size_t start, size_t end)
-{
-	char	*word;
-	size_t	pos;
-
-	word = (char *)malloc((end - start + 1) * sizeof(char));
-	if (word == NULL)
-		return (NULL);
-	ft_bzero(word, end - start + 1);
-	pos = 0;
-	while (start < end)
-	{
-		word[pos] = s[start];
-		pos++;
-		start++;
-	}
-	return (word);
-}
-
-size_t	ft_counter(const char *s, const char c)
-{
-	size_t	count;
-	size_t	found;
-
-	count = 0;
-	found = 1;
-	while (*s)
-	{
-		if (*s != c && found == 1)
+		while (s[position] == c)
+			position++;
+		if (s[position])
 		{
-			found = 0;
-			count++;
+			while (s[position] && s[position] != c)
+				position++;
+			size++;
 		}
-		else if (*s == c)
-			found = 1;
-		s++;
 	}
-	return (count);
+	return (size);
+}
+
+size_t	ft_wlen(char const *s, char c, size_t position)
+{
+	size_t	size;
+
+	size = 0;
+	while (s[position] && s[position] != c)
+	{
+		position++;
+		size++;
+	}
+	return (size);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**buffer;
-	size_t	pos_s;
-	size_t	pos_buffer;
-	size_t	found;	
-	size_t	start;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	buffer = (char **)malloc((ft_counter(s, c) + 1) * sizeof(char *));
-	if (buffer == NULL)
+	if (!s)
 		return (NULL);
-	pos_s = 0;
-	pos_buffer = 0;
-	found = 1;
-	start = 0;
-	while (pos_s <= ft_strlen(s) && ft_strlen(s) > 0)
+	buffer = (char **)malloc((ft_count_words(s, c) + 1) * sizeof(char *));
+	if (!buffer)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		if (s[pos_s] != c && found == 1)
+		while (s[i] == c)
+			i++;
+		if (s[i])
 		{
-			found = 0;
-			start = pos_s;
+			buffer[j] = (char *)malloc((ft_wlen(s, c, i) + 1) * sizeof(char));
+			ft_bzero(buffer[j], (ft_wlen(s, c, i) + 1));
+			k = 0;
+			while (s[i] && s[i] != c)
+			{
+				buffer[j][k] = s[i];
+				i++;
+				k++;
+			}
+			j++;
 		}
-		else if ((s[pos_s] == c || pos_s == ft_strlen(s)) && found == 0)
-		{
-			found = 1;
-			buffer[pos_buffer] = ft_getword(s, start, pos_s);
-			//buffer[pos_buffer] = ft_substr(s, start, (pos_s - start));
-			if (buffer[pos_buffer] == NULL)
-				return (ft_clean(buffer, pos_buffer));
-			pos_buffer++;
-		}
-		pos_s++;
 	}
-	buffer[pos_s] = 0;
+	buffer[j] = 0;
 	return (buffer);
 }
