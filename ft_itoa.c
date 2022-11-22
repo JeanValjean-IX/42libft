@@ -6,12 +6,11 @@
 /*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:39:48 by blopez-f          #+#    #+#             */
-/*   Updated: 2022/11/20 21:49:33 by blopez-f         ###   ########.fr       */
+/*   Updated: 2022/11/22 22:07:07 by blopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t	ft_istrlen(const int n)
 {
@@ -33,36 +32,45 @@ size_t	ft_istrlen(const int n)
 	return (size);
 }
 
+size_t	ft_getindex(int n, size_t p, size_t s)
+{
+	size_t	i;
+
+	i = s - p - 1;
+	if (n < 0)
+		i++;
+	return (i);
+}
+
+char	*ft_init_itoa(int n)
+{
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	return (ft_strdup("0"));
+}
+
 char	*ft_itoa(int n)
 {
 	char	*buffer;
 	int		aux_n;
 	size_t	size;
 	size_t	pos;
-	size_t	aux_pos;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (n == 0)
-		return (ft_strdup("0"));
+	if (n == -2147483648 || n == 0)
+		return (ft_init_itoa(n));
 	size = ft_istrlen(n);
 	buffer = (char *)ft_calloc(sizeof(char), size + 1);
-	if (buffer == NULL)
-		return (NULL);
 	pos = 0;
 	aux_n = n;
-	if (n < 0)
+	if (n < 0 && buffer)
 	{
 		buffer[0] = '-';
 		aux_n = -n;
 		pos = 1;
 	}
-	while (pos < size)
+	while (pos < size && buffer)
 	{
-		aux_pos = size - pos - 1;
-		if (n < 0)
-			aux_pos++;
-		buffer[aux_pos] = '0' + aux_n % 10;
+		buffer[ft_getindex(n, pos, size)] = '0' + aux_n % 10;
 		aux_n = aux_n / 10;
 		pos++;
 	}
