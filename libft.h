@@ -6,7 +6,7 @@
 /*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:44:45 by blopez-f          #+#    #+#             */
-/*   Updated: 2022/11/23 20:43:03 by blopez-f         ###   ########.fr       */
+/*   Updated: 2022/11/23 21:20:55 by blopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 void	*ft_memset(void *dest, int val, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
@@ -46,5 +47,6 @@ int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	**ft_split(char const *s, char c);
+void	ft_putchar_fd(char c, int fd);
 
 #endif
