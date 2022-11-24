@@ -6,8 +6,22 @@ Salida		: entero
 ···························································································································
 Descripción:
 
-a) La función se encarga de convertir letras minúsculas a letras mayusculas.
-b) La función retorna un entero que corresponde al código ascii que resulta de la conversión a la letra mayúscula.
-c) El valor de tipo entero de variable "c" de entrada en teoria debería corrsponder a un código ascii de una letra minúscula.
-d) En la tabla ascii los códigos de las letras minúsculas están entre el 97 y el 122 (ámbos códigos includidos)
-e) Si el código de entrada no está dentro del rango de las minúsculas, la función retorna el código de entrada.
+	a) La función se encarga de convertir letras minúsculas a letras mayúsculas.
+	b) Los códigos ascii de las letras mayúsculas estan dentro del rango 65 y 90 (ambos códigos incluidos)
+	c) Los códigos ascii de las letras minúsculas estan dentre del rango 97 y 122 (ambos códigos incluides)
+	d) En el caso que el valor de entrada no corresponda con un aletra minúscula se retornara el mísmo valor
+	   de entrada.
+	e) La distancia de una letra mayúscula a una letra minúscula es de 32 carácteres ascii
+
+Algoritmo:
+
+	- Entrada de un valor entero
+	- Si el valor de entrada está dentro del rango ascii de las letras minúsculas entonces restaremos 32 al valor de
+	  entrada y retornaremos el resultado.
+	- Si por lo contrario, el valor de entrada NO está dentro del rango ascii de las letras minúsculas, entonces
+	  no se realizará ninguna operación y se retornará el valor de entrada.
+
+ 
+
+
+
