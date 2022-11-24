@@ -1,0 +1,13 @@
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: ft_toupper(int c);
+···························································································································
+Entrada		: c -> entero
+Salida		: entero
+···························································································································
+Descripción:
+
+a) La función se encarga de convertir letras minúsculas a letras mayusculas.
+b) La función retorna un entero que corresponde al código ascii que resulta de la conversión a la letra mayúscula.
+c) El valor de tipo entero de variable "c" de entrada en teoria debería corrsponder a un código ascii de una letra minúscula.
+d) En la tabla ascii los códigos de las letras minúsculas están entre el 97 y el 122 (ámbos códigos includidos)
+e) Si el código de entrada no está dentro del rango de las minúsculas, la función retorna el código de entrada.
