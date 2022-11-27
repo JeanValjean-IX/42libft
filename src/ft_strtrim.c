@@ -6,7 +6,7 @@
 /*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 10:03:14 by blopez-f          #+#    #+#             */
-/*   Updated: 2022/11/06 14:04:41 by blopez-f         ###   ########.fr       */
+/*   Updated: 2022/11/27 22:14:51 by blopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	aux_end = ft_strlen(s1) - 1;
 	while (s1[aux_start] && ft_strchr(set, s1[aux_start]))
 		aux_start++;
-	if (aux_start > aux_end)
+	if (aux_start >= aux_end)
 		return (ft_strdup(""));
 	while (s1[aux_end] && ft_strchr(set, s1[aux_end]))
 		aux_end--;
-	aux_buffer = ft_calloc(1, (aux_end - aux_start) + 2);
+	aux_buffer = ft_calloc(sizeof(char), (aux_end - aux_start) + 2);
 	if (!aux_buffer)
 		return (0);
 	ft_memcpy(aux_buffer, s1 + aux_start, aux_end - aux_start + 1);

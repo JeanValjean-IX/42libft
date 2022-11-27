@@ -1,0 +1,88 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strtrim_es.txt                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/27 13:11:45 by blopez-f          #+#    #+#              #
+#    Updated: 2022/11/27 22:45:49 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: char	*ft_strtrim(char const *s1, char const *set);
+			  (Función adicional)
+···························································································································
+Entrada		: s1	-> Variable constante, de tipo puntero de variables de tipo caracter.
+			  set	-> Variable constante, de tipo puntero de variables de tipo caracter.
+Salida		: Puntero de memoria a variables de tipo carácter. (cadena de carácteres)
+···························································································································
+Descripción y notas:
+
+	a) Elimina todos los caracteres de la cadena "set" desde el principio y desde el final de ’s1’, hasta
+	   encontrar un caracter no perteneciente a "set".
+
+	b) La cadena resultante se devuelve con una reserva de memoria que hemos protegido.
+
+	c) En esta funció hay que tener en cuenta que el resultado que aporta la herramiento "francinette"
+	   dependerá del sistema operativo donde se ejecute. En el caso de de "ubuntu", el  resultado es 
+	   correcto, sin embargo, el mismo código en Mac no indicará que el código es errórneo. Lo mismo 
+	   pasa en para el caso contrario, corregido el error en Mac, dará error de leeks en ubuntu.
+
+	   El problema se ubica en la línea 24 "aux_end = ft_strlen(s1) - 1;".
+	   
+	   Si "ft_strlen(s1)" = 0  entonces al restarle -1 tendremos un valor negativo. Esta inicialización
+	   en Mac generarà un error, sin embargo en ubuntu funcionará correctamente.
+
+	   Para corregir el problema en Mac, tenemos que subtituir la línea 24 por la siguientes líneas:
+
+	   aux_end = ft_strlen(s1);
+	   if (aux_end > 0)
+	   aux_end--;
+
+	d) Para esta libreria sólo se puede utilizar la función malloc.
+
+	e) Esta función tiene dependencias a otras funciones de nuestra libreria "libft":
+
+		1) ft_strlen: Para obtener el tamaño de la cadena pasa en "s1"
+		2) ft_strchr: Para obtener la posición que "s1" dejará de ener los caracteres contenidos en "set"
+		3) ft_calloc: Para reservar la memoria que se necesita para la cadena resultante.
+		4) ft_memcpy: Para copiar de "s1" la cadena limitada por los carácteres contenidos en "set" desde
+					  el principio y el final.
+		               
+Algoritmo:
+
+	1) Definimos la variables que vamos a utilizar y que no están definidas en los parámetros de nuestra
+	   función.
+
+	2) Verificamos si existe las dos cadenas de entrada de la funcion "s1" y "set". Si no existen
+	   nuestra función no continurá y devolverá en nulo.
+	
+	3) Inicializamos las variables donde guardamos el princio ("aux_start") y el final ("aux_end") de la
+	   cadena a tratar ("s1"):
+
+	   	- Para la varibale del princio "aux_start" la igualamos a 0.
+		- Para la variable del final "aux_end" la igualamos a longitud de la cadena. Puesto que esta 
+		  variable la queremos utilizar para indicar una posición, hemos de tener en cuenta que las
+		  cadena de carácteres empiezan en la posición "0", por lo tanto a esta variable le resta 1.
+
+		En este punto se ha de tener en cuenta lo indicado arriba (apartado c)
+
+	4)  Se recorre la cadena "s1" desde el principio hasta que dejan de aparecer los caracteres que
+	    contiene "set". La posición encontrada se guardará en "aux_start".
+
+		En el caso que la posición encontrada es igual o mayor que la longitud de la cadena "s1" 
+		significará que la subcadena resultante está vacia. Por esta razón en caso que se cumpla
+		esta condición finalizará nuestra función retornando una cadena vacia.
+
+	5)	Se recorre la cadena "s1" desde el final hasta que dejan de aparecer los carácteres que
+	    contiene "set". La posición encontrada se guardará en "aux_end".
+	
+	NO FINALIZADA ..... FALTA REVISON (posible modificación de código).
+
+Ejemplo de uso:
+		
+		....
+
+
