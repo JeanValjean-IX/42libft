@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_toupper_es.txt                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/27 13:07:14 by blopez-f          #+#    #+#              #
+#    Updated: 2022/11/27 13:07:18 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 ---------------------------------------------------------------------------------------------------------------------------
 Prototipo	: ft_toupper(int c);
 ···························································································································
@@ -21,7 +33,11 @@ Algoritmo:
 	- Si por lo contrario, el valor de entrada NO está dentro del rango ascii de las letras minúsculas, entonces
 	  no se realizará ninguna operación y se retornará el valor de entrada.
 
- 
+ Ejemplo de uso:
+
+		ft_tolower('h') --> 'H'
+		ft_tolower('\n') --> '\n'
+		...... 
 
 
 

@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_tolower_es.txt                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/27 13:03:14 by blopez-f          #+#    #+#              #
+#    Updated: 2022/11/27 13:08:00 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 ---------------------------------------------------------------------------------------------------------------------------
 Prototipo	: ft_tolower(int c);
 ···························································································································
@@ -21,7 +33,10 @@ Algoritmo:
 	- Si por lo contrario, el valor de entrada NO está dentro del rango ascii de las letras mayúsculas, entonces
 	  no se realizará ninguna operación y se retornará el valor de entrada.
 
- 
+ Ejemplo de uso:
 
+		ft_tolower('H') --> 'h'
+		ft_tolower('\n') --> '\n'
+		......
 
 
