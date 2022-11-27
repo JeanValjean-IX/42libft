@@ -1,0 +1,27 @@
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: ft_tolower(int c);
+···························································································································
+Entrada		: c -> entero
+Salida		: entero
+···························································································································
+Descripción y notas:
+
+	a) La función se encarga de convertir letras mayúsculas a letras minúsculas.
+	b) Los códigos ascii de las letras mayúsculas estan dentro del rango 65 y 90 (ambos códigos incluidos)
+	c) Los códigos ascii de las letras minúsculas estan dentre del rango 97 y 122 (ambos códigos incluides)
+	d) En el caso que el valor de entrada no corresponda con un aletra minúscula se retornara el mísmo valor
+	   de entrada.
+	e) La distancia de una letra mayúscula a una letra minúscula es de 32 carácteres ascii
+
+Algoritmo:
+
+	- Entrada de un valor entero
+	- Si el valor de entrada está dentro del rango ascii de las letras mayúsculas entonces sumaremos 32 al valor de
+	  entrada y retornaremos el resultado.
+	- Si por lo contrario, el valor de entrada NO está dentro del rango ascii de las letras mayúsculas, entonces
+	  no se realizará ninguna operación y se retornará el valor de entrada.
+
+ 
+
+
+

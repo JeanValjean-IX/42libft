@@ -6,7 +6,7 @@
 /*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 20:17:03 by blopez-f          #+#    #+#             */
-/*   Updated: 2022/11/04 22:42:15 by blopez-f         ###   ########.fr       */
+/*   Updated: 2022/11/27 12:48:11 by blopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if ((aux_size - start) < len)
 		len = aux_size - start;
-	aux_ret = ft_calloc(1, len + 1);
+	aux_ret = ft_calloc(sizeof(char), len + 1);
 	if (!aux_ret)
 		return (0);
 	return (ft_memcpy(aux_ret, s + start, len));

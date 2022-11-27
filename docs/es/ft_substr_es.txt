@@ -1,0 +1,91 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_substr_es.txt                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/27 11:41:54 by blopez-f          #+#    #+#              #
+#    Updated: 2022/11/27 12:59:11 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: char *ft_substr(char const *s, unsigned int start, size_t len);
+			  (Función adicional)
+···························································································································
+Entrada		: s     -> Variable constante, de tipo puntero de variables de tipo caracter.
+			  start -> Variable de tipo entero sin contener s signo.
+			  len   -> Variable de tipo entero sin signo (tipo variable dependiente de "stddef.h")
+Salida		: Puntero de memoria a variables de tipo carácter. 
+···························································································································
+Descripción y notas:
+
+	a)	 La función se encargar de retornar una subcadena, que se encuentra dentro de la cadena que
+	     se envia en la variable "s". 
+		 
+	b)	La subcadena se obtendrá a partir del siguiente criterio:
+
+		 	- La variable "start" marca la posición de inicio de la subcadena.
+			- La variable "len" marcará la longitud de carácteres a partir de "start" que se
+			  van a extraer.
+	
+	c)	La subcadena resultado finaliza en "\0" (nulo)
+	d)	La subcadena a retornar tiene que tener su reserva de memória y estar protegida.
+	e)	La memoria reservada corresponde a "len + 1" (el +1 es para finalizar la cadena con "/0")
+	f)	Sólo se permite el uso del "malloc"
+	g)	En el caso de:
+			- Que "s" no existe o la reserva de memoria de la subcadena falla, nuestra función
+			  retornará nulo
+			- Que la longitud de la subcadenna indicada en "len" sea 0, o que la longitud de la 
+			  cadena "s" sea inferior a la posicion de inicio de la subcadena indicada en la
+			  variable "start" nuestra función devolverá una cadena vacia.
+	h) Esta función tiene dependencias a otras funciones de nuestra libreria "libft.h":
+			- ft_strlen: Obtendremos longitud de la cadena "s"
+			- ft_strdup: Devolverá las cadena vacia (reservando el especi necesario)
+			- ft_calloc: Reserva la memoria necesaria y le pone al espacio reservado nulos 
+			- ft_memcpy: Se encarga de poner la subcadena dentro de la reserva que realizado con
+						 "ft_calloc". 
+
+Algoritmo:
+
+	1) Primero se definen las variables que vamos a utilizar dentro del ambito de la función y que no estan 
+	   definidas en su prototipo.
+
+	2) Verificamos que existe "s", en caso contrario ya no hace falta continuar, devolveremos nulo.
+
+	3) Verificamos:
+
+			- Si el valor de inicio de la subcadena "start" existe dentro de la cadena enviada "s". 
+			
+			  Para ello compararemos la longitud de "s" es mayor que la posición de inicio "start". Aquí hay
+			  que tener en cuenta que la primera posición en una cadena es "0" (en esta posición el tamaño
+			  de la cadena seria 1).
+
+			  Para este caso, no hará fanta continuar y nuestra función retornara una cadena vacia.
+
+			- Si el valor de subcadena "len" es igual 0, significará que estamos hablando de una subcadena
+			  sin contenido.
+
+			  Para este caso, no hará fanta continuar y nuestra función retornará una cadena vacia.
+	
+	4) Llegado a este punto, significará que podemos obtener una subcada a partir de las tres variables
+	   de entrada nuestra función. 
+	   
+	   Por lo tanto lo primero que haremos es reservar y proteger la memoria que necesitamos, teniendo 
+	   en cuenta que la subcadena ha de estar acabada en "\0". Para esta acción utilizamos la función "ft_calloc"
+	   de nuestra libreria "libft".
+
+	   En el caso que la función ft_calloc tenga problemas, no continuaremos nuestra función y retornará
+	   nulo.
+
+	5) Una vez asegurada la memoria ya podemos retornar la subcadena utilizando la función "ft_memcpy" de nuestra
+	   de nuestra libreria "libft".
+
+Ejemplo de uso:
+		
+		ft_substr("Hola", 2, 3) --> "ola\0"
+		ft_substr("Hola", 2, 0) --> "\0"
+		ft_substr("Hola", 4, 3) --> "\0"
+		....
+
