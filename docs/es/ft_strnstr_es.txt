@@ -1,0 +1,52 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strnstr_es.txt                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/28 18:18:23 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/01 19:46:13 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+···························································································································
+Entrada		: haystack -> una constante de puntero de memoria a una cadena de caracteres
+			  needle   -> una constante de puntero de memoria a una cadena de caracteres
+			  len      -> entero sin signo
+Salida		: Puntero de memoria a una cadena de caracteres
+···························································································································
+Descripción y notas:
+
+	a) funcion que retorna un puntero de memoria de la cadena "haystack" donde se encuentra los "len"
+	   caracteres de la cadena "needle"
+	
+	b) Si la longitud de "needle" es 0, devolvera la cadena "haystack"
+
+	c) Tiene dependencia a la funcion "ft_strlen" de nuestra libreria libft
+	
+Algoritmo:
+
+	1) Definimos las variables que vamos a utilizar y que no estan definidas en los parametros de nuestra
+	   funcion
+	
+	2) Verificamos que la cadena "needle" tiene tamano. En el caso que su tamano sea 0, nuestra funcion no
+	   continuara y retornara puntero inicial de la cadena "haystack"
+
+	3) Recorreremos toda la cadena "haystack", teniendo en cuenta el tamano de "haystack" y "needle"  
+	
+	4) En el caso de encontrar el primer caracter de la cadena "needle" guardaremos la posicion, y recorreremos 
+	   las dos cadenas "haystack" des de la posicion encontrada y "needle" desde el principio. 
+
+	   En el caso que el recorrido de "needle" llegue al final (caracter '\0'), entonces finalizaremos la
+	   funcion retornando la posicion de "haystack" donde se encontro la coincidencia con "needle"
+	
+	5) Si finaliza los dos recorridos sin llegar al final de "needle" la funci'on retornara nulo.
+	
+Ejemplo de uso:
+
+	ft_strnstr("Hola", "ol", 2) -> "ola"
+	ft_strnstr("Hola", "ola", 2) -> NULL
+	ft_strnstr("Hola", "", 2) -> NULL
