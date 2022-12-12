@@ -1,0 +1,44 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strchr_es.txt                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 00:11:34 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/13 00:12:16 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: har	*ft_strchr(const char *s, int c);
+···························································································································
+Entrada		: s -> constante puntero de memoria a una cadena de caracteres
+			  c -> entero (corresponde al codi de un caracter)
+Salida		: puntero a una cadena
+···························································································································
+Descripción y notas:
+
+	a) Funcion que retorna una cadena a partir de localizar el caracter "c" en la cadena "s". La busqueda se realiza desde 
+	   en inicio de la cadena "s"
+	
+	b) La funcion no tiene dependencias de otras funciones
+
+Algoritmo:
+
+	1) Definicion de las variables que no estan definidas en los parametros de entrada de la funcion.
+
+			- aux  : puntero que indicara la primera coincidencia del caracter "c" a buscar dentro de la cadena "s"
+
+	2) Realizamos una iteracion que partira de la posicion inicial de la cadena "s" y que incrementara la posicion
+	   de la cadena hasta encontrar el caracter "c" que se le pasa a la funcion 
+
+	3) Si finaliza la iteracion y si no se ha encontrado el caracter, la funcion retorna nulo, en caso contrario indicamos 
+	   a la variable aux la posicion de memoria donde ha localizado el caracter.
+
+	4) Retorna la variable con la posicion de memoria donde se la localizado el caracter 
+
+Ejemplo de uso:
+
+	ft_strdup("hola",'o') --> "ola"
+	ft_strdup("hola",'i') --> NULL

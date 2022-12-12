@@ -1,0 +1,47 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strlcpy_es.txt                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 00:01:03 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/13 00:10:19 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+···························································································································
+Entrada		: dst     -> puntero de memoria a una cadena de caracteres
+			  src     -> contante a un puntero de memoria a una cadena de caracteres
+			  dstsize -> un enteroo sin signo
+Salida		: entero sin signo
+···························································································································
+Descripción y notas:
+
+	a) La funcion copia n caracteres de la cadena de caractres "src" al principio de la cadena de caracteres "dst"
+	
+	b) No hay dependencias de otra funciones.   
+
+Algoritmo:
+
+	1) Indicamos las variables que no estan definidas en lo parametros de entrada de la funcion
+
+	2) Inicializamos las variables 	aux_size_dstsize y aux_size:
+
+			- aux_size: esta variable se utilizara como indice de la cadena de destino, su valor
+			  final nos indicara el tamno resultante de la variable "dst"
+			- aux_size_dstsize: esta variable se utlizara como indice de la variable de destino "dst"
+	
+	3) Realizamos una iteracion por la cadena de origen ("src") hasta que encuentre su final (caracter nulo).
+	   
+	   En el caso que una vez iniciada la iteracion hasta el valor dstsize, copiaremos uno a uno los caracteres 
+	   de src a dst. TAmbien guardamos la posicion final de dst, con el proposito de anadir el nulo a final de
+	   cadena.
+
+	4) Si dstsize pasado es 0, se retornara el tamano de src, en el caso contrario, se retornara el numero de 
+	   caracteres copiados y antes de retornar este valor, se anadira a la cadena dst el caracter nulo.
+		 
+Ejemplo de uso:
+

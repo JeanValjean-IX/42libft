@@ -1,0 +1,37 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strlen_es.txt                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/12 23:59:21 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/13 00:10:33 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: size_t	ft_strlen(const char *s)
+···························································································································
+Entrada		: s -> una constante de puntero de memoria a una cadena de caracteres
+Salida		: entero sin signo
+···························································································································
+Descripción y notas:
+
+	a) funcion que retorna el tamano de la cadena en le enviamos por parametro ("s")
+
+	b) No hay dependenccias de otras funciones
+
+Algoritmo:
+
+	1) Definimos las variables que utilizamos en funci'on y que  no estan definidas en los parametros de Entrada
+
+	2) Inincializamos la variable a 0, que utilizaremos para indicar el tamono de la cadena que le pasamos por parametro
+
+	3) Iteramos por cada caracter de la cadena hasta encontrar el final de cadena.
+
+	4) Finalizada la iteracion devolvemos la posicion recorrida que coincidira con el tamano de la cadena.
+		 
+Ejemplo de uso:
+
+	ft_strlen("hola") -> 4

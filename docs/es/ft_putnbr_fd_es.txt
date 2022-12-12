@@ -1,0 +1,62 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_putnbr_fd_es.txt                                :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 00:16:05 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/13 00:18:18 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: void	ft_putnbr_fd(int n, int fd);
+···························································································································
+Entrada		: n  -> entero 
+			  fd -> entero
+Salida		: No retorna nada 
+···························································································································
+Descripción y notas:
+
+	a) Se trata de una funcion recursiva que envia al file descriptor indicado "fd" las diferentes unidades que corresponde 
+	   al entero enviado por "n"
+	
+	b) La funcion tiene dependencias a otras funciones de nuestra libreria libft:
+
+       funciones definidas en la libreria "libft"
+
+			- ft_putchar_fd : envia al filedescriptor indicado un caracter que corresponde a la unidad tratada para convertir
+			                  el entero en caracteres.  
+
+Algoritmo:
+
+	1) Definimos variables que vamos a utilizar y que no estan los parametros de la funcion
+
+	2) En funcion del valor de n, relizaremos difeerentes tratamientos:
+
+		a) Puesto que el numero utilizado puede ser negativo, tenemos que tener en cuenta limites de una variable entero con
+		   signo. Un entero con signo los limites son:  -2147483648 al 2147483647. 
+		   
+		   En el caso de encontrar el limite minimo del entero con signo, la funcion enviara al file descriptor la cadena 
+	   	   "-2147483648" y finalizara su ejecucion.
+
+		b) En el caso que el valor de "n" sea negativo y no un limite minimo, enviamos al filedescriptor el caracter correspondiente
+		   al signo ('-'), convertiremos el numero negativo en un numero positivo y volveremos a llamar a nuestra funcion.
+
+		c) En el caso que n sea un valor superior a n (es decir que n tenga 2 digitos), obtenderemos la unidad (aux2) a enviar al
+		   filedescriptor y voleremos a llamar anuestra funcion con el resultado de divir el numero por 10 (ya que este valor lo 
+		   utilizaremos para obtener el siguiente caracter que tenemos que enviar al filedescriptor). 
+
+		   Cuando el proceso recursivo que estamos realizando encuentre su fin (que n sea una unica unidad) y retorne la funcion
+		   imrimimos el caracter obtenido en "aux2"
+
+		d) En el caso que el valor de n sea ya una unica unidad, enviaremos el caracter ascii correspondient al valor de n al 
+		   filedescriptor. 
+		   
+		   En este caso y en el caso del punto (a) encontramos un punto de rotura para el proceso de recursivad.
+
+
+Ejemplo de uso:
+
+	ft_putnbr_fd(123) --> "123"

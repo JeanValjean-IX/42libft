@@ -1,0 +1,71 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_split_es.txt                                    :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 00:12:46 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/13 00:14:17 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: char	**ft_split(char const *s, char c)
+···························································································································
+Entrada		: s -> constante de un puntero de memoria de una cadena 
+			  c -> byte (corresponde al codi de un caracter)
+Salida		: puntero de punteros a cadenas
+···························································································································
+Descripción y notas:
+
+	a) Funcion que retorna una matriz de cadenas, a partir de una cadena "s" y que se segmenta en otras cadena a partir un 
+	   un caracter "c" que le pasamos.
+	
+	b) La funcion tiene dependencias a otras funciones definidas dentro del mismo fichero y a otras funciones de nuestra
+	   libreria libft:
+
+		fuciones de definidas dentro y solo para el fichero "ft_split.c" 
+
+			- ft_clean  : liberar la memoria (en caso de error de asignacion)
+			- ft_cwords : cuenta el numero de palabras delimitadas por un caracter 
+			- ft_wlen   : cuenta el numero de caracteres que tiene una de las palabras
+
+		Estas funciones se definen como "static" puesto que solo son necesarias para la funcion ft_split y no han 
+		de ser usuadas o confundidas en otras funciones de nuestra libreria libft.
+
+		funciones definidas en la libreria "libft"
+
+			- ft_calloc : reservar la memoria de nuestra zona de memoria 
+			- ft_substr : para obtener la palabra delimitada por el caracter "c" (funcion que a su vez reserva memoria)
+
+Algoritmo:
+
+	1) Definicion de las variables que no estan definidas en los parametros de entrada de la funcion.
+
+			- buffer : zona de memoria donde guardaremos todos las palabras limitadas por el caracter "c" que se 
+			           encuentran dentro de la cadena "s".
+			- i      : se utilizara como indice para recorrer la cadena "s"
+			- j      : se utilizara como indice de palabras obtenidas.
+
+	2) En el caso de la cadena sea nula, la funcion no continuara y retornara nulo
+
+	3) Reservamos la memoria para guardar n punteros a cadenas, teniendo en cuenta que hemos de anadir un nulo para indicar
+	   el final de las posiciones de memoria. En este caso, lo que hacemos es averiguar cuantas palabras estan contenidas, y
+	   hacemos las reservas de memoria para cada palabra +1 (que se utilizara para localizar la ultima posicion). 
+
+	4) En el caso, que esta primera reserva de memoria tenga problemas la funcion no continuara y retornara nulo.
+
+	5) Una vez reservada la memoria, recorremos la cadena en busqueda de los caracteres delimitadores, temniendo en cuenta que si 
+	   encuentra el caracter delimitador significara que ha encontrado limite a una palabra, y por lo tanto, al buffer se anadira
+	   la memoria correspondiente a la palabra localizada (mediante la ft_substr).
+
+	   En el caso de encontrar un problema en la asignacion de la nueva memoria al bufer, la funcion no continuara y liberara 
+	   la memoria llamando a la funcion ft_clean.
+	
+	6) Una vez iterada toda la cadena y segmetada en palabra la funcion retorna el buffer o la zona de memoria segmentnda por
+	   las palabras limitadas por un caracter o final de cadena nulo.
+
+Ejemplo de uso:
+
+	ft_split("Hola",'o') --> [0] "H" --> [1] "la" -> [2] NULL

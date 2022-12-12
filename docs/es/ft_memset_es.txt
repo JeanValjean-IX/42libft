@@ -1,0 +1,44 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_memset_es.txt                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 00:19:20 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/13 00:19:42 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: void	*ft_memset(void *b, int c, size_t len);
+···························································································································
+Entrada		: b   -> posicion de memoria 
+			  c   -> entero 
+			  len -> entero sin signo
+Salida		: Retorna un puntero a una posicion de memoria donde se ubica un contenido
+···························································································································
+Descripción y notas:
+
+	a) La funcion se encarga de rellenar "n" bytes("len") con el valor de "c" apartir de la direccion de memoria de "b" 
+	
+	b) La funcion no tiene dependencias a otras funciones de nuestra libreria libft.
+
+Algoritmo:
+
+	1) Defimos las variables que utiizamos y que no estan definidas por los parametros de entrada de la funcion
+
+			dst: corresponde a un puntero de tipo byte
+
+	2) Inicializamos la variable definida con la posicion inicial del puntero "b".
+
+	3) Realizamos una iteracion hasta que "len" (que vamos degradando en 1) llegue a 0.
+	   
+	   En la iteracion igualamos el contenido de posicion de memoria senalada por "dst" al valor pasado por "c".
+	   (en cada iteracion incrementamos la posicion de memoria de dst )
+	
+	4) Retornamos "b"
+
+Ejemplo de uso:
+
+	ft_memset("Lorem", "A", 2) --> "AArem"

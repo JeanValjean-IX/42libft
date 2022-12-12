@@ -1,0 +1,49 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strdup_es.txt                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 00:08:32 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/13 00:09:37 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: char	*ft_strdup(const char *s)
+···························································································································
+Entrada		: s       -> constante puntero de memoria a una cadena de caracteres
+Salida		: puntero a una cadena 
+···························································································································
+Descripción y notas:
+
+	a) Funcion que retorna un duplicado de una cadena "s" que le enviamos
+	
+	b) La funcion tiene dependencias a las funciones ft_strlen, ft_calloc y ft_memcpy de la libreria libft
+
+			- ft_strlen: se utiliza para obtener el tamano de la cadena "s"
+			- ft_calloc: reserva de memoria de la cadena duplicada y inicializacion a caracteres nulos
+			- ft_memcpy: copia de una zona de memoria
+
+Algoritmo:
+
+	1) Definicion de las variables que no estan definidas en los parametros de entrada de la funcion.
+
+			- size  : size tendra el tammo de la cadena resultante
+			- aux_s : la cadena donde duplicaremos "s"
+
+	2) Obtenemos el tamano de la cadena a duplicar, hay que tener en cuenta que el tamano final se le ha de anadir una posicion mas 
+	   que correspondera al nulo que marcara el final de cadena
+
+	3) Reservamos la memoria y la inicializamos todos los caracteres a nulo
+
+	4) Verificamos que la reserva se ha realizado correctamente, en caso contrario finalizamos la funcion y retornamos nulo
+
+	5) Si todo ha ido bien, copiamos el contenido de la cadena "s" en la cadena "aux_s" y hacemos que la funcion retorne el resultado
+	   de la copia 
+
+Ejemplo de uso:
+
+	ft_strdup("hola") --> "hola"
+	ft_strdup("")     --> ""

@@ -1,0 +1,33 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_putchar_fd_es.txt                               :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 00:17:18 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/13 00:17:55 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: void	ft_putchar_fd(char c, int fd);
+···························································································································
+Entrada		: c  -> byte (corresponde a codigo ascii de un caracter) 
+			  fd -> entero
+Salida		: no retorna nada
+···························································································································
+Descripción y notas:
+
+	a) Funcion que envia un caracter "c" al file descriptor indicado en "fd"
+	
+	b) La funcion no tiene dependencias a otras funciones de nuestra libreria libft.
+
+Algoritmo:
+
+	1) Utiizamos la funcion "write" con los parametros que corresponde al tipo de file descriptor "fd", la direccion de memoria donde 
+	   esta el valor del caracter enviado en "c" y la longitud que al tratarse de caractres sera 1.
+
+Ejemplo de uso:
+
+	ft_putstr_fd("H",1) --> Enviamos al filedescriptor "1" el cartacter "H". (Visualizamos por pantalla el caracter "H")

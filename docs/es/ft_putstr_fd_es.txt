@@ -1,0 +1,39 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_putstr_fd_es.txt                                :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 00:15:03 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/13 00:15:20 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: void ft_putstr_fd(char *s, int fd);
+···························································································································
+Entrada		: s -> constante de un puntero de memoria de una cadena 
+			  fd -> entero
+Salida		: no retorna nada
+···························································································································
+Descripción y notas:
+
+	a) Funcion que envia una cadena de caracteres "s" al file descriptor indicado en "fd"
+	
+	b) La funcion tiene dependencias a otras funciones de nuestra libreria libft:
+
+       funciones definidas en la libreria "libft"
+
+			- ft_strlen : obtiene la longitud de la cadena enviada en "s" 
+
+Algoritmo:
+
+	1) obtenemos la longitd de la cadena enviada en la variable "s"
+
+	2) Utiizamos la funcion "write" con los parametros que corresponde al tipo de file descriptor "fd", la cadena "s" y
+	   la longitud de la cadena que obtenemos con la funcion ft_strlen
+
+Ejemplo de uso:
+
+	ft_putstr_fd("Hola",1) --> Visualizamos la cadena "Hola".

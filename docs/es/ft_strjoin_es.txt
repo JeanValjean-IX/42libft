@@ -1,0 +1,51 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strjoin_es.txt                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 00:03:57 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/13 00:10:06 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: char	*ft_strjoin(char const *s1, char const *s2);
+···························································································································
+Entrada		: s1      -> puntero de memoria a una cadena de caracteres
+			  s2      -> contante a un puntero de memoria a una cadena de caracteres
+Salida		: entero sin signo
+···························································································································
+Descripción y notas:
+
+	a) La funcion reserva la memoria donde ubicara la union de la cadena "s1" y "s2"
+	
+	b) Tiene dependencias de las funciones ft_strlen y ft_calloc:
+
+			ft_strlen: para obtener las longitudes de "s1" y "s2"
+			ft_calloc: reserva de memoria y inicializacion a nulo
+
+Algoritmo:
+
+	1) Definicion de las variables que no estan definidas en los parametros de entrada de la funcion.
+
+			- aux_s3      : varibale que utilizaremos para guaradar el resultado del tratamiento
+			- aux_s3_size : variable que guardaremos la suma del tamano de las dos cadenas, para la reserva de memoria.
+
+	2) Verificamos si existen las cadenas "s1" y "s2"
+
+	3) Obtenemos el tamano de la cadena resultante (s1 + s2) para reservar la memoria que necesitamos (+1 que sera el final de cadena '\0')
+
+	4) En el caso que la reserva de memoria tuviera algun problema, finalizariamos la funcion retornando nulo
+
+	5) Realizamos dis iteraciones: 
+	
+		- la primera para la cadena "s1" donde anadiremos los caracreres a la cadena resultante ("aux_s3"). 
+		- la segunda para la cadena "s2" donde anadiremos los caracreres a la cadena resultante ("aux_s3").  
+
+	6) Finalizadas las iteraciones retornamos aux_s3 (al utilizar la funcion ft_calloc no necesitaremos anadir un nulo al final)
+
+Ejemplo de uso:
+
+	ft_strjoin("hola","adios") --> "holaadios"

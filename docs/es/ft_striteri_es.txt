@@ -1,0 +1,38 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_striteri_es.txt                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 00:04:51 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/13 00:09:52 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+···························································································································
+Entrada		: s1      -> puntero de memoria a una cadena de caracteres
+			  f       -> funcion(int, char*)
+Salida		: no tiene salida, puede modificar el parametro "s" 
+···························································································································
+Descripción y notas:
+
+	a) Funcion que aplica a cada caracter una funcion "f" donde se pasan los caracteres y la posicion de "s"
+	
+	b) No tiene dependencias de otras funciones
+
+Algoritmo:
+
+	1) Definicion de las variables que no estan definidas en los parametros de entrada de la funcion.
+
+			- i      : la posicion del caracter de la cadena "s" enviado en la funcion "f" 
+
+	2) Realizamos una iteracion para recorer la cadena "s" y enviar a la funcion f, el caracter de "s" y su posicion
+
+	NOTA: Se desconoce el tratamiento de la funcion "f".
+
+Ejemplo de uso:
+
+	ft_strjiteri("hola",f("hola",4)) --> "hola" (entendiendo por ejemplo que "f" solo recorre la cadena que le enviamos)
