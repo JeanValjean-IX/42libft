@@ -1,0 +1,65 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strncmp_es.txt                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/12 23:48:01 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/12 23:50:24 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: int	ft_strncmp(const char *s1, const char *s2, size_t n);
+···························································································································
+Entrada		: s1 -> una constante de puntero de memoria a una cadena de caracteres
+			  s2   -> una constante de puntero de memoria a una cadena de caracteres
+			  n      -> entero sin signo
+Salida		: Un entero
+···························································································································
+Descripción y notas:
+
+	a) Funcion que compara 2 cadenas ("s1" y "s2") terminadas en nulo '\0' donde se tiene en cuenta el numero de carcteres a 
+	   comparar ("n")
+	
+	b) La funcion dejara de comparar una vez encontrado el caracter nulo o la comparacion de caracteres sean diferentes entre las
+	   dos cadena
+
+	c) En el caso que la longitud a comparar "n" sea 0 se retornara 0
+
+	d) La funcion retornara la diferencia resultante del valor del ultimo caracter comparado de la cadena "s1" y "s2"
+
+	e) La funcion no posee dependencias de otra funcion. 
+	
+Algoritmo:
+
+	1) Definimos las variables que utilizara la funcion y que no esten definidas en los parametros de llamada a la funcion
+	
+	2) Primero verficamos el valor de "n" y en el caso que este se 0 retornamos 0
+
+	3) Inicializamos las variables:
+
+			aux_s1 = a la primera posicion de momoria de s1
+			aux_s2 = a la primera posicion de memoria de s2
+			aux_n = 0 (ya que seria la posion comparada inferior a n -1, puesto que se parte de 0)
+
+	4) Utilizamos apuntatdores de memoria para ir comparando caracter a caracter ("aux_s1" y "aux_s2")
+
+	5) Utilizamos una variable de tipo entero si signo con el objetivo de tener un indice que nos permita controlar el numero
+	   de caracteres que tiene que comparar
+
+	6) Iteramos con las condiciones de:
+
+		- Caracteres a compara existan, es decir, que en las posiciones de memoria de "aux_s1" y "aux_s2" no tengan nulo
+		- Que no superen el numero de caracteres a comparar "n"
+		- Que el caracter de "aux_s1" que se compara de "aux_s2" sean iguales
+	
+	7) Finalizada la iteracion se retornara el resultado de la diferencia del valor entre el ultimo caracter se "s1" y "s2" que 
+	   se ha recorrido.
+	
+Ejemplo de uso:
+
+	ft_strncmp("hola", "hola", 2) -> 0
+	ft_strncmp("", "ola", 0) -> 0
+	ft_strncmp("a", "b", 2) -> -1
