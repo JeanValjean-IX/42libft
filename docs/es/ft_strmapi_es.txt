@@ -1,0 +1,63 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strmapi_es.txt                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/12 23:54:37 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/12 23:57:07 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strmapi_es.txt                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/03 11:05:02 by blopez-f          #+#    #+#              #
+#    Updated: 2022/12/03 12:07:08 by blopez-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+---------------------------------------------------------------------------------------------------------------------------
+Prototipo	: char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+···························································································································
+Entrada		: s -> una constante de puntero de memoria a una cadena de caracteres
+			  f -> posicion memoria a una cadena resultante de una funcion
+Salida		: posicion de memoria de una cadena de caracteres
+···························································································································
+Descripción y notas:
+
+	a) Funcion que ha de retornar la posicion de memoria de una cadena (que previamente se ha reservado un espacio de 
+	   memoria), donde se le pasa el parametro de un puntero de una cadena de caracteres ("s") y de una funcion "f" donde
+	   f tiene los parametros de de un entero sin signo y un caracter.
+
+	b) La funcion a cada carácter de la string ’s’, aplica la función ’f’ dando como parámetros el índice de cada carácter
+	   dentro de ’s’ y el propio carácter. Genera una nueva string con el resultado del uso sucesivo de ’f’
+	
+	c) La funcion tine dependencia de la funciones ft_calloc y ft_strlen de la libreria "libft"
+			- ft_calloc para reservar la memoria de la cadena que retornamos (teniendo en cuenta que inicializa a nulos)
+			- ft_strlen para conocer el tamano de la memoria que se ha de reservar.
+	
+Algoritmo:
+
+	1) Definimos las variabales que vamos a utlizar en nuestra funcion
+
+	2) Inicializamos las variables, en el caso del calloc verificamos que todo este ok y en caso contrario finalizamos
+	   la funcion retornando nulo.
+
+	   	- "str" para la posicion de memoria donde guaramos la cadena a retornar. ( != Null)
+	   	- "i" posicion que recorremos de la cadena. ( = 0 )
+
+	3) Iteramos hasta el final de la cadena que le pasamos "s".
+
+	   La iteracion llama a la funcion "f" que le hemos pasado por parametro
+
+	4) Retornara la cadena.
+
+Ejemplo de uso:
+
+	ft_strmapi("hola", f("hola", 2)) -> "ho" (en verdad nos pasa una direccion de memoria)
