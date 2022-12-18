@@ -6,7 +6,19 @@
 /*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 10:03:14 by blopez-f          #+#    #+#             */
-/*   Updated: 2022/11/27 22:14:51 by blopez-f         ###   ########.fr       */
+/*   Updated: 2022/12/18 22:46:25 by blopez-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blopez-f <blopez-f@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/16 17:24:30 by blopez-f          #+#    #+#             */
+/*   Updated: 2022/12/13 18:28:17 by blopez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +33,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return (0);
 	aux_start = 0;
-	aux_end = ft_strlen(s1) - 1;
+	aux_end = ft_strlen(s1);
+	if (aux_end > 0)
+		aux_end--;
 	while (s1[aux_start] && ft_strchr(set, s1[aux_start]))
 		aux_start++;
-	if (aux_start >= aux_end)
+	if (aux_start > aux_end || !(s1[0]))
 		return (ft_strdup(""));
 	while (s1[aux_end] && ft_strchr(set, s1[aux_end]))
 		aux_end--;
